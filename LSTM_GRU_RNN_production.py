@@ -34,7 +34,6 @@ def load_data(filename):
     :return: t: vector of time; qo: matrix of oil rate in all wells; qo: matrix of water rate in all wells;
             and p: matrix of bottom hole pressure in all wells
     """
-    os.chdir('C:\\Users\\E460\\PycharmProjects\\untitled3\\Research\\csv files')
     df = pd.read_csv(filename)
 
     t = df.loc[:, ['TIME']] # Time in simulation: DAY
@@ -184,8 +183,8 @@ def plot_loss_comparison(histories):
 def main():
     ### FLOW RATE PREDICTION ###
     # Load Training and Test Set
-    t_train, qo_train, qw_train, wc_train, p_train = load_data('far_lowWC_training.csv')
-    t_test, qo_test, qw_test, wc_test, p_test = load_data('far_lowWC_test.csv')
+    t_train, qo_train, qw_train, wc_train, p_train = load_data('https://raw.githubusercontent.com/titaristanto/data-driven-production-problem/master/far_lowWC_training.csv')
+    t_test, qo_test, qw_test, wc_test, p_test = load_data('https://raw.githubusercontent.com/titaristanto/data-driven-production-problem/master/far_lowWC_test.csv')
 
     X_train_raw, Y_train_raw = pd.concat([p_train['WBHP:P1']], axis=1, join='inner'), qo_train.loc[:, ['WOPR:P1']]
     X_test_raw, Y_test = pd.concat([p_test['WBHP:P1']], axis=1, join='inner'), qo_test.loc[:, ['WOPR:P1']]
