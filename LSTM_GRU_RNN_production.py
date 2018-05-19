@@ -1,36 +1,19 @@
 from __future__ import division
 import pandas as pd
 import numpy as np
-from collections import OrderedDict
-from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import Pipeline
-from sklearn.model_selection import train_test_split, cross_val_score, KFold, GridSearchCV
-from tensorflow.contrib import learn
+
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
-from lstm import lstm_model
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.externals import joblib
-import scipy
-import scikits.bootstrap as bootstrap
+
 import matplotlib.pyplot as plt
 import time, os, math, warnings
 from matplotlib import pyplot
 
 from keras.models import Sequential
-from keras.layers import Dense, Activation
-from keras.preprocessing import image
-
-
-from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
-from keras.layers import Conv2D, MaxPooling2D
-
-from keras.utils import np_utils
-from keras.preprocessing import sequence
-from keras.layers.embeddings import Embedding
 from keras.layers.recurrent import LSTM, GRU, SimpleRNN
-import plotly.offline as py
-import plotly.graph_objs as go
+
 
 """
 This file contains various functions related to the data-driven prediction in multiphase 
